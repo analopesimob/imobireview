@@ -6,9 +6,10 @@ import StarRating from './StarRating';
 
 interface LandingPageProps {
     onStartValidation: (identifier: string) => void;
+	onAuthClick: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation }) => {
+const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClick  }) => {
     const [identifier, setIdentifier] = useState('');
 
     const handleSearch = () => {
@@ -25,7 +26,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation }) => {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Header />
+            <Header onAuthClick={onAuthClick} />
             <main className="flex-grow">
                 {/* Hero Section */}
                 <div className="flex min-h-[480px] md:min-h-[550px] flex-col gap-8 items-center justify-center p-4 text-center bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(10, 35, 66, 0.85) 0%, rgba(10, 35, 66, 0.95) 100%)` }}>

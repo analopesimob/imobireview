@@ -1,10 +1,13 @@
 import React from 'react';
 import { LogoIcon, MenuIcon } from './icons';
+interface HeaderProps {
+    onAuthClick?: () => void;
+}
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ onAuthClick }) => {
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-6 md:px-10 py-4 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="flex items-center gap-3 text-primary">
+      <div className="flex items-center gap-3 text-primary cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
         <div className="size-6 text-accent">
           <LogoIcon />
         </div>
@@ -17,7 +20,10 @@ const Header: React.FC = () => {
           <a className="text-gray-700 hover:text-primary" href="#">Contato</a>
         </div>
         <div className="flex gap-2">
-          <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-colors">
+           <button 
+            onClick={onAuthClick}
+            className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-colors"
+          >
             <span className="truncate">Log In</span>
           </button>
         </div>

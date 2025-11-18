@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import LandingPage from './components/LandingPage';
 import ReviewFlow from './components/ReviewFlow';
 import ValidationFlow from './components/ValidationFlow';
+import AuthPage from './components/AuthPage';
 import { ProfileType } from './types';
 
 type View = 'landing' | 'validation' | 'createReview';
@@ -28,8 +29,14 @@ const App: React.FC = () => {
     setCurrentView('landing');
   }
 
+  const handleAuthClick = () => {
+      setCurrentView('auth');
+  }
+
   const renderContent = () => {
     switch (currentView) {
+	  case 'auth':
+          return <AuthPage onLoginClick={resetFlow} />;
       case 'validation':
         return (
           <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -57,7 +64,7 @@ const App: React.FC = () => {
         return null;
       case 'landing':
       default:
-        return <LandingPage onStartValidation={handleStartValidation} />;
+        return <LandingPage onStartValidation={handleStartValidation} onAuthClick={handleAuthClick} />;
     }
   }
 
