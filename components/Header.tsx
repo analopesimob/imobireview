@@ -1,26 +1,28 @@
 import React from 'react';
 import { LogoIcon, MenuIcon } from './icons';
+
 interface HeaderProps {
     onAuthClick?: () => void;
+    onHomeClick?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onAuthClick }) => {
+const Header: React.FC<HeaderProps> = ({ onAuthClick, onHomeClick }) => {
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-6 md:px-10 py-4 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="flex items-center gap-3 text-primary cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <div className="flex items-center gap-3 text-primary cursor-pointer" onClick={onHomeClick}>
         <div className="size-6 text-accent">
-          <LogoIcon />
+          <img src="/public/logo.png" alt="Logo" />
         </div>
         <h2 className="text-xl font-bold tracking-tight">ImobiReview</h2>
       </div>
       <div className="hidden md:flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-8 text-sm font-medium">
-          <a className="text-gray-700 hover:text-primary" href="#">Home</a>
+          <a className="text-gray-700 hover:text-primary" href="#" onClick={(e) => { e.preventDefault(); onHomeClick && onHomeClick(); }}>Home</a>
           <a className="text-gray-700 hover:text-primary" href="#">Sobre nós</a>
           <a className="text-gray-700 hover:text-primary" href="#">Contato</a>
         </div>
         <div className="flex gap-2">
-           <button 
+          <button 
             onClick={onAuthClick}
             className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-colors"
           >

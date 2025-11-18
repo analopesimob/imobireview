@@ -25,7 +25,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLoginClick }) => {
       <header className="px-6 md:px-10 py-6">
         <div className="flex items-center gap-3 text-primary cursor-pointer" onClick={onLoginClick}>
             <div className="size-8 text-accent">
-                <LogoIcon />
+                <img src="/public/logo.png" alt="Logo" />
             </div>
             <h2 className="text-2xl font-bold tracking-tight">ImobiReview</h2>
         </div>

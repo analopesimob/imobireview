@@ -3,57 +3,65 @@ import { AgencyProfile, ProfileType, Review } from './types';
 export const MOCK_REVIEWS: Review[] = [
   {
     id: '1',
-    author: 'Jane Doe',
+    author: 'Carlos Pereira',
     authorProfile: ProfileType.Tenant,
-    date: '2 days ago',
+    date: '2 weeks ago',
     contractPeriod: 'Jan 2023 - Jan 2024',
     overallScore: 5.0,
-    criteria: [], // Not shown in new card design
-    title: 'Excellent Service!', // Not shown directly, but good to have
-    comment: 'Working with Stellar Properties was an absolute pleasure. Their market knowledge and professionalism are second to none. They made the entire process seamless and stress-free.',
+    criteria: [],
+    title: 'Processo transparente',
+    comment: 'Processo de locação muito transparente e rápido. A comunicação com a imobiliária foi excelente, sempre dispostos a ajudar.',
     isAnonymous: false,
-    reply: undefined,
   },
   {
     id: '2',
-    author: 'John Smith',
+    author: 'Ana Souza',
     authorProfile: ProfileType.Landlord,
-    date: '1 week ago',
+    date: '1 month ago',
     contractPeriod: 'Fev 2022 - Fev 2024',
-    overallScore: 4.0,
+    overallScore: 5.0,
     criteria: [],
-    title: 'Good, but could be better',
-    comment: "Very good experience overall. The communication was excellent, though the negotiation phase could have been a bit stronger. Still, I would highly recommend them.",
+    title: 'Ótima experiência',
+    comment: "Ótima experiência como proprietária. Encontraram um bom inquilino rapidamente e cuidam de toda a burocracia. Recomendo.",
     isAnonymous: false,
   },
   {
     id: '3',
-    author: 'Emily White',
+    author: 'Roberto Lima',
     authorProfile: ProfileType.Tenant,
-    date: '3 weeks ago',
+    date: '2 months ago',
     contractPeriod: 'Mar 2023 - Abr 2024',
-    overallScore: 5.0,
+    overallScore: 4.0,
     criteria: [],
-    title: 'Flawless execution',
-    comment: "Flawless execution from start to finish. The team is incredibly transparent and professional. I felt supported and informed every step of the way. Truly a 5-star service!",
+    title: 'Bom atendimento',
+    comment: "O atendimento é bom, mas o processo de vistoria de entrada foi um pouco demorado. No geral, recomendo.",
     isAnonymous: false,
   },
 ];
 
 export const MOCK_AGENCY_PROFILE: AgencyProfile = {
-  name: 'Stellar Properties',
+  name: 'Imobiliária',
+  type: 'Real Estate Agency',
   cnpj: '12.345.678/0001-90',
   logoUrl: 'https://picsum.photos/seed/agency/100/100',
   overallReputation: 4.8,
-  totalReviews: 124,
+  totalReviews: 132,
   reviews: MOCK_REVIEWS,
   criteriaAverages: [
-    { subject: 'Communication', score: 4.9, fullMark: 5 },
-    { subject: 'Professionalism', score: 4.8, fullMark: 5 },
-    { subject: 'Transparency', score: 5.0, fullMark: 5 },
-    { subject: 'Market Knowledge', score: 4.7, fullMark: 5 },
-    { subject: 'Negotiation Skills', score: 4.6, fullMark: 5 },
+    { subject: 'Comunicação', score: 5.0, fullMark: 5 },
+    { subject: 'Transparência', score: 4.9, fullMark: 5 },
+    { subject: 'Profissionalismo', score: 4.7, fullMark: 5 },
+    { subject: 'Resolução', score: 4.6, fullMark: 5 },
   ],
+  externalReputation: {
+      google: { score: 4.2, total: 132 },
+      reclameAqui: { score: 8.3, status: 'Bom' },
+      serasa: { status: 'Baixo risco de crédito' }
+  },
+  legalTransparency: {
+      activeProcesses: 0,
+      lastCheck: '30 dias atrás'
+  }
 };
 
 export const TENANT_REVIEWING_AGENCY_CRITERIA = [

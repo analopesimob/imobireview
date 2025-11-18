@@ -1,4 +1,3 @@
-
 export enum ProfileType {
   Tenant = 'Inquilino',
   Landlord = 'Locador',
@@ -29,8 +28,20 @@ export interface Review {
   };
 }
 
+export interface ExternalReputation {
+  google: { score: number; total: number };
+  reclameAqui: { score: number; status: string };
+  serasa: { status: string };
+}
+
+export interface LegalTransparency {
+  activeProcesses: number;
+  lastCheck: string;
+}
+
 export interface AgencyProfile {
   name: string;
+  type: string;
   cnpj: string;
   logoUrl: string;
   overallReputation: number;
@@ -41,4 +52,6 @@ export interface AgencyProfile {
     score: number;
     fullMark: number;
   }[];
+  externalReputation: ExternalReputation;
+  legalTransparency: LegalTransparency;
 }
