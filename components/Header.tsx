@@ -13,15 +13,11 @@ const Header: React.FC = () => {
       <div className="hidden md:flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-8 text-sm font-medium">
           <a className="text-gray-700 hover:text-primary" href="#">Home</a>
-          <a className="text-gray-700 hover:text-primary" href="#">About Us</a>
-          <a className="text-gray-700 hover:text-primary" href="#">How it Works</a>
-          <a className="text-gray-700 hover:text-primary" href="#">Contact</a>
+          <a className="text-gray-700 hover:text-primary" href="#">Sobre nós</a>
+          <a className="text-gray-700 hover:text-primary" href="#">Contato</a>
         </div>
         <div className="flex gap-2">
           <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide hover:bg-opacity-90 transition-colors">
-            <span className="truncate">Sign Up</span>
-          </button>
-          <button className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 text-gray-800 text-sm font-bold leading-normal tracking-wide hover:bg-gray-200 transition-colors">
             <span className="truncate">Log In</span>
           </button>
         </div>
