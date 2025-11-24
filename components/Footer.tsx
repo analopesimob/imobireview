@@ -5,9 +5,9 @@ const Footer: React.FC = () => {
     return (
         <footer className="flex flex-col gap-8 px-5 py-10 text-center bg-gray-100">
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-                <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#">Privacy Policy</a>
-                <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#">Terms of Service</a>
-                <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#">Contact Us</a>
+                <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#">Política de Privacidade</a>
+                <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#">Termos de Serviço</a>
+                <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#">Contate-nos</a>
             </div>
             <div className="flex flex-wrap justify-center gap-6">
                 <a className="text-grey-soft hover:text-primary" href="#">

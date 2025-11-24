@@ -16,14 +16,15 @@ interface ProfilePageProps {
     onAuthClick: () => void;
     onStartValidation: (id: string) => void;
     onBack: () => void;
+	onAboutClick?: () => void;
 }
 
-const ProfilePage: React.FC<ProfilePageProps> = ({ onAuthClick, onStartValidation, onBack }) => {
+const ProfilePage: React.FC<ProfilePageProps> = ({ onAuthClick, onStartValidation, onBack, onAboutClick }) => {
     const profile = MOCK_AGENCY_PROFILE;
 
     return (
         <div className="flex flex-col min-h-screen bg-background-light">
-            <Header onAuthClick={onAuthClick} onHomeClick={onBack} />
+            <Header onAuthClick={onAuthClick} onHomeClick={onBack} onAboutClick={onAboutClick} />
             
             <main className="flex-grow pb-12">
                 {/* Banner / Header */}

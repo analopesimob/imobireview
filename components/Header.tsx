@@ -4,9 +4,10 @@ import { LogoIcon, MenuIcon } from './icons';
 interface HeaderProps {
     onAuthClick?: () => void;
     onHomeClick?: () => void;
+	onAboutClick?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onAuthClick, onHomeClick }) => {
+const Header: React.FC<HeaderProps> = ({ onAuthClick, onHomeClick, onAboutClick  }) => {
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-6 md:px-10 py-4 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="flex items-center gap-3 text-primary cursor-pointer" onClick={onHomeClick}>
@@ -18,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthClick, onHomeClick }) => {
       <div className="hidden md:flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-8 text-sm font-medium">
           <a className="text-gray-700 hover:text-primary" href="#" onClick={(e) => { e.preventDefault(); onHomeClick && onHomeClick(); }}>Home</a>
-          <a className="text-gray-700 hover:text-primary" href="#">Sobre nós</a>
+          <a className="text-gray-700 hover:text-primary" href="#" onClick={(e) => { e.preventDefault(); onAboutClick && onAboutClick(); }}>Sobre nós</a>
           <a className="text-gray-700 hover:text-primary" href="#">Contato</a>
         </div>
         <div className="flex gap-2">

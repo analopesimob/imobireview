@@ -11,16 +11,20 @@ import {
     QuoteIcon,
     CheckCircleIcon
 } from './icons';
+import { Home, User, Building, Dot } from "lucide-react";
 import StarRating from './StarRating';
 import { MOCK_AGENCY_PROFILE } from '../constants';
+import GradientButton from './GradientButton';
+import BubbleButton from './BubbleButton';
 
 interface LandingPageProps {
     onStartValidation: (identifier: string) => void;
     onAuthClick: () => void;
     onViewProfile: () => void;
+	onAboutClick: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClick, onViewProfile }) => {
+const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClick, onViewProfile, onAboutClick }) => {
     const [identifier, setIdentifier] = useState('');
     const profile = MOCK_AGENCY_PROFILE;
 
@@ -46,7 +50,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Header onAuthClick={onAuthClick} onHomeClick={scrollToTop} />
+            <Header onAuthClick={onAuthClick} onHomeClick={scrollToTop} onAboutClick={onAboutClick} />
             <main className="flex-grow">
                 {/* Hero Section */}
                 <div className="relative bg-primary pb-32 md:pb-48 pt-16 md:pt-24 px-4 text-center overflow-hidden">
@@ -213,12 +217,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                             <p className="text-gray-600 text-lg leading-relaxed">
                                 Alugar não deveria ser um salto no escuro. Na ImobiReview, acreditamos que a confiança é construída com dados — não com achismos.
                             </p>
-                            <button 
-                                onClick={onAuthClick}
-                                className="px-6 py-3 bg-accent text-primary font-bold rounded-lg hover:bg-opacity-90 transition-colors inline-block"
-                            >
-                                Crie sua Conta Gratuita
-                            </button>
+                            <GradientButton onClick={onAuthClick}>
+								Crie sua Conta Gratuita
+							</GradientButton>
                         </div>
                         <div className="flex-1 flex justify-center">
                             {/* Stylized Verified User Card */}
@@ -284,7 +285,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                             {/* Column 1 */}
                             <div className="flex flex-col items-center">
                                 <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-6">
-                                    <PersonIcon className="w-8 h-8" />
+                                    <User className="w-8 h-8" />
                                 </div>
                                 <h3 className="font-bold text-primary text-lg mb-3">Para Inquilinos</h3>
                                 <ol className="text-sm text-gray-600 space-y-2 list-decimal list-inside">
@@ -297,7 +298,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                             {/* Column 2 */}
                             <div className="flex flex-col items-center">
                                 <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-6">
-                                    <HomeIcon className="w-8 h-8" />
+                                    <Home className="w-8 h-8" />
                                 </div>
                                 <h3 className="font-bold text-primary text-lg mb-3">Para Proprietários</h3>
                                 <ol className="text-sm text-gray-600 space-y-2 list-decimal list-inside">
@@ -310,7 +311,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                             {/* Column 3 */}
                             <div className="flex flex-col items-center">
                                 <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-6">
-                                    <HandshakeIcon className="w-8 h-8" />
+                                    <Building className="w-8 h-8" />
                                 </div>
                                 <h3 className="font-bold text-primary text-lg mb-3">Para Imobiliárias</h3>
                                 <ol className="text-sm text-gray-600 space-y-2 list-decimal list-inside">
@@ -337,7 +338,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                             {/* Card 1 */}
                             <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <ShieldIcon className="w-6 h-6 text-accent" />
                                     <h3 className="font-bold text-xl text-primary">Inquilinos</h3>
                                 </div>
                                 <ul className="space-y-4 text-sm text-gray-600">
@@ -359,7 +359,6 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                              {/* Card 2 */}
                              <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <CheckCircleIcon className="w-6 h-6 text-accent" />
                                     <h3 className="font-bold text-xl text-primary">Proprietários</h3>
                                 </div>
                                 <ul className="space-y-4 text-sm text-gray-600">
@@ -381,7 +380,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                              {/* Card 3 */}
                              <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <BuildingIcon className="w-6 h-6 text-accent" />
+                                    
                                     <h3 className="font-bold text-xl text-primary">Imobiliárias</h3>
                                 </div>
                                 <ul className="space-y-4 text-sm text-gray-600">
@@ -402,12 +401,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                         </div>
                         
                         <div className="text-center mt-12">
-                            <button 
-                                onClick={onAuthClick}
-                                className="px-8 py-3 bg-accent text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-lg"
-                            >
-                                Comece seu Perfil Gratuito
-                            </button>
+                            <BubbleButton onClick={onAuthClick}>
+								Comece seu Perfil Gratuito
+							</BubbleButton>
                         </div>
                     </div>
                 </section>

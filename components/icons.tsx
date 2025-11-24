@@ -184,3 +184,17 @@ export const QuoteIcon: React.FC<IconProps> = (props) => (
         <path d="M10 11h-4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-3a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h4a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zm10 0h-4a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-3a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h4a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/>
     </svg>
 );
+
+export const EditDocumentIcon: React.FC<IconProps> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <path d="M12 20h9"></path>
+        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+    </svg>
+);
+
+export const MedalIcon: React.FC<IconProps> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+         <circle cx="12" cy="8" r="7"></circle>
+         <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+    </svg>
+);
