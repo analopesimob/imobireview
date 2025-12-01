@@ -5,7 +5,6 @@ import {
   PersonIcon, 
   HomeIcon, 
   BuildingIcon, 
-  VerifiedUserIcon, 
   UploadCloudIcon, 
   EditDocumentIcon, 
   MedalIcon 

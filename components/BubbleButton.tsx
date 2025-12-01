@@ -35,7 +35,7 @@ const BubbleButton: React.FC<BubbleButtonProps> = ({
             {/* Conteúdo do botão */}
             <span className="relative z-10">{children}</span>
 
-            <style jsx>{`
+            <style>{`
                 .bubble {
                     position: absolute;
                     bottom: -20px;

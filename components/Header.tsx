@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogoIcon, MenuIcon } from './icons';
+import { MenuIcon } from './icons';
 
 interface HeaderProps {
     onAuthClick?: () => void;

@@ -1,14 +1,10 @@
-
 import React, { useState } from 'react';
 import { 
-  LogoIcon, 
-  PersonIcon, 
-  HomeIcon, 
-  BuildingIcon, 
   VisibilityIcon, 
   VisibilityOffIcon, 
   GoogleIcon 
 } from './icons';
+import GradientButton from './GradientButtonBlue';
 
 interface AuthPageProps {
     onLoginClick?: () => void;
@@ -20,144 +16,117 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLoginClick }) => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background-light flex flex-col font-display">
-      {/* Simple Header with Logo */}
-      <header className="px-6 md:px-10 py-6">
-        <div className="flex items-center gap-3 text-primary cursor-pointer" onClick={onLoginClick}>
-            <div className="size-8 text-accent">
-                <img src="/public/logo.png" alt="Logo" />
-            </div>
-            <h2 className="text-2xl font-bold tracking-tight">ImobiReview</h2>
-        </div>
-      </header>
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden font-display">
+      {/* Immersive Background */}
+      <div className="absolute inset-0 bg-primary z-0">
+        {/* Gradient Mesh */}
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#1a4b85] rounded-full blur-[120px] opacity-40"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#6BA87A] rounded-full blur-[100px] opacity-20"></div>
+        <div className="absolute top-[40%] right-[20%] w-[30%] h-[30%] bg-[#0f3461] rounded-full blur-[80px] opacity-60"></div>
+      </div>
 
-      <main className="flex-grow flex items-center justify-center px-4 md:px-10 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl w-full gap-12 lg:gap-24 items-center">
-          {/* Left Content */}
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-6xl font-black text-primary tracking-tight leading-tight">
-              Seu próximo imóvel <br />
-              começa com informação <br />
-              confiável
-            </h1>
-            <p className="text-text-secondary text-lg md:text-xl max-w-md">
-              Crie seu perfil para alugar com tranquilidade, acessando avaliações reais e informações transparentes que tornam suas decisões mais seguras.
-            </p>
-          </div>
-
-          {/* Right Content - Auth Card */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md mx-auto md:ml-auto relative">
-            <div className="absolute top-8 right-8">
+      <div className="container mx-auto px-4 z-10 relative flex items-center justify-center h-full py-10">
+        <div className="w-full max-w-5xl bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+          
+          {/* Lado Esquerdo - Formulário de Autenticação (Branco/Claro) */}
+          <div className="w-full md:w-1/2 bg-[#F3F5F9] p-8 md:p-12 flex flex-col justify-center relative">
+            <div className="mb-8">
+              <div className="flex items-center gap-2 text-primary mb-6" onClick={onLoginClick}>
+                <div className="size-10 text-accent">
+                    <img src="/public/logo.png" alt="Logo" />
+                </div>
+                <h2 className="text-2xl font-bold tracking-tight">ImobiReview</h2>
+              </div>
               
+              <h1 className="text-3xl font-bold text-primary mb-2">
+                Já tem uma conta?
+              </h1>
             </div>
-            
-            <h2 className="text-3xl font-bold text-primary mb-8 mt-2">Crie sua conta</h2>
-            
-            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-                <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-text-primary">Email</label>
-                    <input 
-                        type="email" 
-                        placeholder="Digite seu e-mail" 
-                        className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
-                    />
-                </div>
 
-                <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-text-primary">Password</label>
-                    <div className="relative">
-                        <input 
-                            type={showPassword ? "text" : "password"} 
-                            placeholder="Crie uma senha forte" 
-                            className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all pr-10"
-                        />
-                        <button 
-                            type="button"
-                            onClick={() => setShowPassword(!showPassword)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary"
-                        >
-                            {showPassword ? <VisibilityIcon className="w-5 h-5"/> : <VisibilityOffIcon className="w-5 h-5"/>}
-                        </button>
-                    </div>
-                </div>
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <div className="space-y-1.5">
+                  <label className="text-sm font-medium text-gray-600">Email</label>
+                  <input 
+                      type="email" 
+                      placeholder="user@example.com" 
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-gray-800 placeholder:text-gray-400"
+                  />
+              </div>
 
-                <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-text-primary">Confirme sua senha</label>
-                    <div className="relative">
-                        <input 
-                            type={showConfirmPassword ? "text" : "password"} 
-                            placeholder="Confirme sua senha" 
-                            className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all pr-10"
-                        />
-                        <button 
-                             type="button"
-                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary"
-                        >
-                            {showConfirmPassword ? <VisibilityIcon className="w-5 h-5"/> : <VisibilityOffIcon className="w-5 h-5"/>}
-                        </button>
-                    </div>
-                </div>
+              <div className="space-y-1.5">
+                  <label className="text-sm font-medium text-gray-600">Senha</label>
+                  <div className="relative">
+                      <input 
+                          type={showPassword ? "text" : "password"} 
+                          placeholder="••••••••••••" 
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all pr-10 text-gray-800"
+                      />
+                      <button 
+                          type="button"
+                          onClick={() => setShowPassword(!showPassword)}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors"
+                      >
+                          {showPassword ? <VisibilityIcon className="w-5 h-5"/> : <VisibilityOffIcon className="w-5 h-5"/>}
+                      </button>
+                  </div>
+              </div>
 
-                <div className="space-y-2 pt-2">
-                    <label className="text-sm font-medium text-text-primary">Eu sou...</label>
-                    <div className="grid grid-cols-3 gap-3">
-                        <button 
-                            type="button"
-                            onClick={() => setRole('tenant')}
-                            className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${role === 'tenant' ? 'border-primary bg-primary/5 text-primary' : 'border-gray-200 text-gray-500 hover:border-gray-300'}`}
-                        >
-                            <PersonIcon className="w-6 h-6 mb-1" />
-                            <span className="text-xs font-bold">Inquilino</span>
-                        </button>
-                        <button 
-                            type="button"
-                            onClick={() => setRole('landlord')}
-                             className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${role === 'landlord' ? 'border-primary bg-primary/5 text-primary' : 'border-gray-200 text-gray-500 hover:border-gray-300'}`}
-                        >
-                            <HomeIcon className="w-6 h-6 mb-1" />
-                            <span className="text-xs font-bold">Locador</span>
-                        </button>
-                        <button 
-                            type="button"
-                            onClick={() => setRole('agency')}
-                             className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${role === 'agency' ? 'border-primary bg-primary/5 text-primary' : 'border-gray-200 text-gray-500 hover:border-gray-300'}`}
-                        >
-                            <BuildingIcon className="w-6 h-6 mb-1" />
-                            <span className="text-xs font-bold">Imobiliária</span>
-                        </button>
-                    </div>
-                </div>
+              <button 
+                className="w-full py-3 bg-primary hover:bg-[#0f3461] text-white font-bold rounded-full transition-all duration-300 shadow-lg shadow-primary/30 transform hover:scale-[1.02] active:scale-[0.98]"
+              >
+                  ENTRAR
+              </button>
 
-                <div className="flex items-start gap-2 pt-2">
-                    <input type="checkbox" id="terms" className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary" />
-                    <label htmlFor="terms" className="text-sm text-text-secondary">
-                        Concordo com os<a href="#" className="text-primary font-semibold hover:underline">Termos de Serviço</a> e a <a href="#" className="text-primary font-semibold hover:underline">Política de Privacidade</a>.
-                    </label>
-                </div>
-
-                <button type="submit" className="w-full py-3.5 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-lg shadow-primary/20">
-                    Criar Conta
-                </button>
+              <button 
+                className="w-full py-3 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-bold rounded-full transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                  <GoogleIcon className="w-5 h-5" />
+                  ENTRAR COM GOOGLE
+              </button>
             </form>
 
-            <div className="relative my-8">
-                <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-gray-200"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                    <span className="px-4 bg-white text-gray-500 font-medium">OR</span>
-                </div>
+            <div className="mt-6 text-center">
+              <a href="#" className="text-xs text-gray-500 hover:text-primary underline decoration-gray-300 underline-offset-2">
+                ESQUECI MINHA SENHA
+              </a>
+            </div>
+          </div>
+
+          {/* Lado direito - Visuais (Escuro/Azul) */}
+          <div className="w-full md:w-1/2 bg-gradient-to-br from-[#0A2342] to-[#051326] relative p-8 md:p-12 flex flex-col justify-between overflow-hidden">
+            {/* Abstract Shapes */}
+            <div className="absolute top-0 right-0 w-full h-full">
+              <div className="absolute top-[-50%] right-[-50%] w-[100%] h-[100%] border-[40px] border-white/5 rounded-full"></div>
+              <div className="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] border-[2px] border-white/10 rounded-full"></div>
+              <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-accent/10 blur-3xl rounded-full"></div>
             </div>
 
-            <button className="w-full py-3.5 bg-white border border-gray-200 text-text-primary font-semibold rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-3">
-                <GoogleIcon className="w-5 h-5" />
-                Sign up with Google
-            </button>
-
+            <div className="relative z-10 flex flex-col h-full justify-center items-start">
+               {/* Área de texto principal */}
+               <div className="mb-auto mt-auto">
+                 <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
+                   Seu próximo imóvel <br />começa com informação <br /> confiável
+                 </h2>
+                 <p className="text-blue-200 text-lg font-light mb-8">
+                   Crie seu perfil para alugar com tranquilidade, acessando avaliações reais e informações transparentes que tornam suas decisões mais seguras.
+                 </p>
+               </div>
+               
+               {/* CTA Area */}
+               <div className="relative w-full bg-[#0d2d55]/80 backdrop-blur-md rounded-xl p-6 border border-white/10 mt-8">
+                  <h3 className="text-white font-bold text-lg mb-4 text-center">Primeira vez por aqui?</h3>
+                  <GradientButton 
+                    onClick={onLoginClick} // Em um aplicativo real, isso poderia alternar para o modo de cadastro.
+                    className="w-full py-3 bg-white text-secondary hover:bg-gray-100 font-bold rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] transform hover:-translate-y-0.5"
+                  >
+                    CRIAR MINHA CONTA
+                  </GradientButton>
+               </div>
+            </div>
           </div>
+
         </div>
-      </main>
+      </div>
     </div>
   );
 };

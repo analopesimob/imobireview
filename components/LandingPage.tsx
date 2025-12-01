@@ -176,7 +176,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
 
                             {/* Right Column: Reviews */}
                             <div className="p-8 bg-white">
-                                <h3 className="text-lg font-bold text-primary mb-6">Recent Reviews</h3>
+                                <h3 className="text-lg font-bold text-primary mb-6">Avaliações Recentes</h3>
                                 
                                 <div className="space-y-8">
                                     {profile.reviews.slice(0, 2).map(review => (
@@ -226,7 +226,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                             <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 w-full max-w-sm transform rotate-3 hover:rotate-0 transition-transform duration-300">
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center">
-                                        <PersonIcon className="w-8 h-8 text-gray-500"/>
+                                        <User className="w-8 h-8 text-gray-500"/>
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-primary text-lg flex items-center gap-1">
