@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { 
+  LogoIcon, 
   VisibilityIcon, 
   VisibilityOffIcon, 
-  GoogleIcon 
+  GoogleIcon,
+  CloseIcon,
+  AppleIcon,
+  FacebookIcon,
+  MailIcon
 } from './icons';
-import GradientButton from './GradientButtonBlue';
 
 interface AuthPageProps {
     onLoginClick?: () => void;
@@ -13,7 +17,104 @@ interface AuthPageProps {
 const AuthPage: React.FC<AuthPageProps> = ({ onLoginClick }) => {
   const [role, setRole] = useState<'tenant' | 'landlord' | 'agency' | null>(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+
+  // Sign Up Modal Component
+  const SignUpModal = () => (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-fadeIn">
+        <div className="bg-white w-full max-w-[568px] rounded-xl shadow-2xl overflow-hidden relative animate-slideUp">
+            
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+                <button 
+                    onClick={() => setIsSignUpOpen(false)}
+                    className="p-2 -ml-2 hover:bg-gray-100 rounded-full transition-colors"
+                >
+                    <CloseIcon className="w-4 h-4 text-gray-800" />
+                </button>
+                <h3 className="font-bold text-gray-800">Log in or sign up</h3>
+                <div className="w-8"></div> {/* Spacer for alignment */}
+            </div>
+
+            {/* Body */}
+            <div className="p-6">
+                <div className="mb-6">
+                    <h2 className="text-2xl font-bold text-primary mb-1">Welcome to ImobiReview</h2>
+                    <p className="text-sm text-gray-500">Create an account to access verified reviews.</p>
+                </div>
+
+                {/* Inputs Style Airbnb */}
+                <div className="mb-4">
+                    <div className="border border-gray-300 rounded-t-lg px-4 py-3 relative hover:border-gray-800 focus-within:border-2 focus-within:border-primary cursor-pointer">
+                        <label className="block text-xs text-gray-500 mb-0.5">Country/Region</label>
+                        <select className="w-full bg-transparent outline-none appearance-none text-gray-800 font-medium cursor-pointer">
+                            <option>Brasil (+55)</option>
+                            <option>United States (+1)</option>
+                            <option>Portugal (+351)</option>
+                        </select>
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                    <div className="border-x border-b border-gray-300 rounded-b-lg px-4 py-3 hover:border-gray-800 focus-within:border-2 focus-within:border-primary relative -mt-[1px]">
+                         <label className="block text-xs text-gray-500 mb-0.5">Phone number</label>
+                        <input 
+                            type="tel" 
+                            className="w-full outline-none text-gray-800 placeholder:text-gray-400 font-medium"
+                            placeholder="(11) 99999-9999"
+                        />
+                    </div>
+                    <p className="text-xs text-gray-500 mt-2">
+                        We'll call or text you to confirm your number. Standard message and data rates apply. <a href="#" className="underline font-medium text-primary">Privacy Policy</a>
+                    </p>
+                </div>
+
+                <button className="w-full bg-primary hover:bg-[#0f3461] text-white font-bold py-3.5 rounded-lg text-lg transition-colors mb-6">
+                    Continue
+                </button>
+
+                {/* Divider */}
+                <div className="flex items-center gap-4 mb-6">
+                    <div className="h-[1px] bg-gray-200 flex-1"></div>
+                    <span className="text-xs text-gray-500 font-medium">or</span>
+                    <div className="h-[1px] bg-gray-200 flex-1"></div>
+                </div>
+
+                {/* Social Login Buttons */}
+                <div className="space-y-3">
+                    <button className="w-full border border-gray-800 hover:bg-gray-50 rounded-lg py-3 px-4 flex items-center relative transition-colors">
+                        <FacebookIcon className="w-5 h-5 absolute left-4 text-[#1877F2]" />
+                        <span className="w-full text-center text-sm font-bold text-gray-700">Continue with Facebook</span>
+                    </button>
+                    <button className="w-full border border-gray-800 hover:bg-gray-50 rounded-lg py-3 px-4 flex items-center relative transition-colors">
+                        <GoogleIcon className="w-5 h-5 absolute left-4" />
+                        <span className="w-full text-center text-sm font-bold text-gray-700">Continue with Google</span>
+                    </button>
+                    <button className="w-full border border-gray-800 hover:bg-gray-50 rounded-lg py-3 px-4 flex items-center relative transition-colors">
+                        <AppleIcon className="w-5 h-5 absolute left-4 text-black" />
+                        <span className="w-full text-center text-sm font-bold text-gray-700">Continue with Apple</span>
+                    </button>
+                    <button className="w-full border border-gray-800 hover:bg-gray-50 rounded-lg py-3 px-4 flex items-center relative transition-colors">
+                        <MailIcon className="w-5 h-5 absolute left-4 text-gray-700" />
+                        <span className="w-full text-center text-sm font-bold text-gray-700">Continue with email</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <style>{`
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes slideUp {
+                from { transform: translateY(20px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            .animate-fadeIn { animation: fadeIn 0.2s ease-out forwards; }
+            .animate-slideUp { animation: slideUp 0.3s ease-out forwards; }
+        `}</style>
+    </div>
+  );
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden font-display">
@@ -115,12 +216,12 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLoginClick }) => {
                {/* CTA Area */}
                <div className="relative w-full bg-[#0d2d55]/80 backdrop-blur-md rounded-xl p-6 border border-white/10 mt-8">
                   <h3 className="text-white font-bold text-lg mb-4 text-center">Primeira vez por aqui?</h3>
-                  <GradientButton 
-                    onClick={onLoginClick} // Em um aplicativo real, isso poderia alternar para o modo de cadastro.
+                  <button
+                    onClick={() => setIsSignUpOpen(true)}
                     className="w-full py-3 bg-white text-secondary hover:bg-gray-100 font-bold rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] transform hover:-translate-y-0.5"
                   >
                     CRIAR MINHA CONTA
-                  </GradientButton>
+                  </button>
                </div>
             </div>
           </div>

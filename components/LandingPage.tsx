@@ -184,7 +184,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                                             <div className="flex justify-between items-start mb-2">
                                                 <div className="flex items-center gap-2">
                                                     <span className="font-bold text-primary">{review.author}</span>
-                                                    <span className={`text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide ${review.authorProfile === 'Inquilino' ? 'bg-accent' : 'bg-primary'}`}>
+                                                    <span className={`text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide ${review.authorProfile === 'Inquilino' ? 'bg-primary' : 'bg-primary'}`}>
                                                         {review.authorProfile}
                                                     </span>
                                                 </div>
@@ -198,12 +198,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                                     ))}
                                 </div>
 
-                                <button 
+                                <BubbleButton
                                     onClick={onViewProfile}
-                                    className="w-full mt-6 py-3 bg-gray-100 text-primary font-bold rounded-lg hover:bg-gray-200 transition-colors text-sm uppercase tracking-wide"
+                                    className="w-full mt-6 py-3 text-primary font-bold rounded-lg text-sm uppercase tracking-wide"
                                 >
                                     Ver Detalhes
-                                </button>
+                                </BubbleButton>
                             </div>
                         </div>
                     </div>
@@ -435,7 +435,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                             onClick={scrollToSearch}
                             className="px-8 py-3 bg-accent text-primary font-bold rounded-lg hover:bg-opacity-90 transition-colors shadow-lg"
                         >
-                            Encontre uma Reputação Agora
+                            Encontre uma Avaliação Agora
                         </button>
                         <button 
                             onClick={onAuthClick}

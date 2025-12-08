@@ -60,7 +60,7 @@ export const HubIcon: React.FC<React.HTMLAttributes<HTMLSpanElement>> = (props) 
 
 export const FacebookIcon: React.FC<IconProps> = (props) => (
     <svg aria-hidden="true" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" {...props}>
-        <path clipRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fillRule="evenodd"></path>
+        <path clipRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.044 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fillRule="evenodd"></path>
     </svg>
 );
 
@@ -73,6 +73,26 @@ export const TwitterIcon: React.FC<IconProps> = (props) => (
 export const LinkedInIcon: React.FC<IconProps> = (props) => (
     <svg aria-hidden="true" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path clipRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fillRule="evenodd"></path>
+    </svg>
+);
+
+export const AppleIcon: React.FC<IconProps> = (props) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74s2.57-.99 4.31-.74c.58.03 2.21.21 3.24 1.73-2.9 1.76-2.4 5.37.52 6.53-.47 1.25-1.12 2.53-2.14 3.71-.51.64-1.05 1.05-1.01 1zM13 3.5c.54-1.57 2.25-2.43 3.81-2.5-.27 2.05-2.14 3.81-3.81 3.65-.17-1.39.05-1.15 0-1.15z" />
+    </svg>
+);
+
+export const MailIcon: React.FC<IconProps> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+    </svg>
+);
+
+export const CloseIcon: React.FC<IconProps> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
     </svg>
 );
 
