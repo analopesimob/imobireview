@@ -3,14 +3,14 @@ import Header from './Header';
 import Footer from './Footer';
 import StarRating from './StarRating';
 import { MOCK_AGENCY_PROFILE } from '../constants';
-import { 
-  VerifiedUserIcon, 
-  MapPinIcon, 
-  PhoneIcon, 
-  GlobeIcon,
-  CheckCircleIcon
-} from './icons';
 import { ProfileType } from '../types';
+import {
+	UserCheck,
+	MapPin,
+	Phone,
+	Globe,
+	CircleCheckBig,
+} from "lucide-react";
 
 interface ProfilePageProps {
     onAuthClick: () => void;
@@ -38,18 +38,18 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onAuthClick, onStartValidatio
                                 <div className="flex items-center gap-3 mb-2">
                                     <h1 className="text-3xl font-black tracking-tight">{profile.name}</h1>
                                     <span className="text-accent flex items-center gap-1 bg-white/10 px-2 py-1 rounded-full text-xs font-bold">
-                                        <VerifiedUserIcon className="text-sm" /> Verified
+                                        <UserCheck className="text-sm" /> 
                                     </span>
                                 </div>
                                 <div className="flex flex-wrap gap-4 md:gap-8 text-sm text-gray-300">
                                     <span className="flex items-center gap-1.5">
-                                        <MapPinIcon className="w-4 h-4" /> São Paulo, SP
+                                        <MapPin className="w-4 h-4" /> São Paulo, SP
                                     </span>
                                     <span className="flex items-center gap-1.5">
-                                        <PhoneIcon className="w-4 h-4" /> (11) 3344-5566
+                                        <Phone className="w-4 h-4" /> (11) 3344-5566
                                     </span>
                                     <a href="#" className="flex items-center gap-1.5 hover:text-white transition-colors">
-                                        <GlobeIcon className="w-4 h-4" /> www.sonhoreal.com.br
+                                        <Globe className="w-4 h-4" /> www.sonhoreal.com.br
                                     </a>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onAuthClick, onStartValidatio
                                     </div>
                                 </div>
                                 <div className="mt-4 flex items-start gap-2 text-xs text-gray-400">
-                                    <CheckCircleIcon className="w-4 h-4 shrink-0 text-accent" />
+                                    <CircleCheckBig className="w-4 h-4 shrink-0 text-accent" />
                                     <p>Dados verificados em fontes públicas oficiais.</p>
                                 </div>
                             </div>

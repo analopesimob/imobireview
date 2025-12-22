@@ -40,7 +40,7 @@ export const MOCK_REVIEWS: Review[] = [
 ];
 
 export const MOCK_AGENCY_PROFILE: AgencyProfile = {
-  name: 'Imobiliária',
+  name: 'Sonho Real Imóveis',
   type: 'Real Estate Agency',
   cnpj: '12.345.678/0001-90',
   logoUrl: 'https://picsum.photos/seed/agency/100/100',
@@ -63,6 +63,13 @@ export const MOCK_AGENCY_PROFILE: AgencyProfile = {
       lastCheck: '30 dias atrás'
   }
 };
+
+export const CONDOMINIUM_CRITERIA = [
+    'Barulho / Silêncio',
+    'Gestão do Síndico',
+    'Área de Lazer',
+    'Segurança Geral'
+];
 
 export const TENANT_REVIEWING_AGENCY_CRITERIA = [
     'Comunicação',

@@ -2,16 +2,12 @@ import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { 
-    VerifiedUserIcon, 
-    PersonIcon, 
-    HomeIcon, 
-    BuildingIcon, 
-    ShieldIcon, 
-    HandshakeIcon, 
-    QuoteIcon,
-    CheckCircleIcon
-} from './icons';
-import { Home, User, Building, Dot } from "lucide-react";
+	Home, 
+	User, 
+	Building, 
+	Quote, 
+	UserCheck 
+} from "lucide-react";
 import StarRating from './StarRating';
 import { MOCK_AGENCY_PROFILE } from '../constants';
 import GradientButton from './GradientButton';
@@ -22,9 +18,10 @@ interface LandingPageProps {
     onAuthClick: () => void;
     onViewProfile: () => void;
 	onAboutClick: () => void;
+	onContactClick: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClick, onViewProfile, onAboutClick }) => {
+const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClick, onViewProfile, onAboutClick, onContactClick }) => {
     const [identifier, setIdentifier] = useState('');
     const profile = MOCK_AGENCY_PROFILE;
 
@@ -50,7 +47,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Header onAuthClick={onAuthClick} onHomeClick={scrollToTop} onAboutClick={onAboutClick} />
+            <Header onAuthClick={onAuthClick} onHomeClick={scrollToTop} onAboutClick={onAboutClick} onContactClick={onContactClick} />
             <main className="flex-grow">
                 {/* Hero Section */}
                 <div className="relative bg-primary pb-32 md:pb-48 pt-16 md:pt-24 px-4 text-center overflow-hidden">
@@ -69,7 +66,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                             <div className="flex w-full items-stretch rounded-lg h-12 shadow-lg overflow-hidden">
                                 <input
                                     className="flex-1 px-4 text-gray-900 focus:outline-none border-none bg-white placeholder:text-gray-400"
-                                    placeholder="CPF/ CNPJ"
+                                    placeholder="CPF/ CNPJ/ NOME"
                                     value={identifier}
                                     onChange={(e) => setIdentifier(e.target.value)}
                                     onKeyPress={handleKeyPress}
@@ -226,12 +223,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                             <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 w-full max-w-sm transform rotate-3 hover:rotate-0 transition-transform duration-300">
                                 <div className="flex items-center gap-4 mb-6">
                                     <div className="w-14 h-14 bg-gray-200 rounded-full flex items-center justify-center">
-                                        <User className="w-8 h-8 text-gray-500"/>
+                                        <UserCheck className="w-8 h-8 text-gray-500"/>
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-primary text-lg flex items-center gap-1">
                                             Usuário Verificado 
-                                            <VerifiedUserIcon className="text-accent text-xl" />
                                         </h3>
                                         <div className="flex items-center gap-1">
                                             <span className="font-black text-primary">4.8</span>
@@ -411,7 +407,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                 {/* Testimonial Section */}
                 <section className="bg-primary py-20 px-4 md:px-10">
                     <div className="max-w-4xl mx-auto text-center text-white">
-                        <QuoteIcon className="w-12 h-12 text-accent mx-auto mb-6" />
+                        <Quote className="w-12 h-12 text-accent mx-auto mb-6" />
                         <h3 className="text-2xl md:text-3xl font-bold leading-snug mb-8">
                             "O ImobiReview mudou completamente minha perspectiva sobre alugar. Finalmente uma plataforma que traz segurança e transparência para inquilinos e proprietários. É a tranquilidade que o mercado precisava."
                         </h3>
@@ -446,7 +442,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                     </div>
                 </section>
             </main>
-            <Footer />
+            <Footer onContactClick={onContactClick} />
         </div>
     );
 };

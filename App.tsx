@@ -5,9 +5,10 @@ import ValidationFlow from './components/ValidationFlow';
 import AuthPage from './components/AuthPage';
 import ProfilePage from './components/ProfilePage';
 import AboutPage from './components/AboutPage';
+import ContactPage from './components/ContactPage';
 import { ProfileType } from './types';
 
-type View = 'landing' | 'validation' | 'createReview' | 'auth' | 'profile'| 'about';
+type View = 'landing' | 'validation' | 'createReview' | 'auth' | 'profile'| 'about'| 'contact';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('landing');
@@ -43,6 +44,10 @@ const App: React.FC = () => {
       setCurrentView('about');
   }
 
+  const handleContactClick = () => {
+      setCurrentView('contact');
+  }
+
   const renderContent = () => {
     switch (currentView) {
       case 'auth':
@@ -51,9 +56,11 @@ const App: React.FC = () => {
           return <ProfilePage onAuthClick={handleAuthClick} onStartValidation={handleStartValidation} onBack={resetFlow} onAboutClick={handleAboutClick} />;
       case 'about':
           return <AboutPage onAuthClick={handleAuthClick} onHomeClick={resetFlow} />;
-	  case 'validation':
+	  case 'contact':
+		  return <ContactPage onAuthClick={handleAuthClick} onHomeClick={resetFlow} onAboutClick={handleAboutClick} />;
+      case 'validation':
         return (
-          <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <main>
             <ValidationFlow 
               revieweeIdentifier={validationData.revieweeIdentifier} 
               onValidationSuccess={handleValidationSuccess} 
@@ -65,7 +72,7 @@ const App: React.FC = () => {
         // The reviewer role must be set to proceed here
         if (validationData.reviewerRole) {
             return (
-              <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <main>
                 <ReviewFlow 
                   reviewerRole={validationData.reviewerRole} 
                   onCancel={resetFlow} 
@@ -78,12 +85,13 @@ const App: React.FC = () => {
         return null;
       case 'landing':
       default:
-        return <LandingPage onStartValidation={handleStartValidation} onAuthClick={handleAuthClick} onViewProfile={handleViewProfile} onAboutClick={handleAboutClick} />;
+        return <LandingPage onStartValidation={handleStartValidation} onAuthClick={handleAuthClick} onViewProfile={handleViewProfile} onAboutClick={handleAboutClick} onContactClick={handleContactClick} />;
     }
   }
 
   return (
-    <div className="min-h-screen bg-background-light text-primary font-display">
+    <div className="min-h-screen text-primary font-display">
+
       {renderContent()}
     </div>
   );

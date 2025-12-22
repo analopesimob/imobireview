@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import { 
-  PersonIcon, 
-  HomeIcon, 
-  BuildingIcon, 
-  UploadCloudIcon, 
-  EditDocumentIcon, 
-  MedalIcon 
-} from './icons';
+import {
+	ShieldCheck, 
+	Route,
+	BadgeCheck,
+	Home,
+	User,
+	Building,
+	Upload,
+	UserCheck,
+	HatGlasses,
+	Medal,
+	MapPinHouse,
+	MessagesSquare,
+	Hotel,
+	PencilLine,
+	ChartLine,
+} from 'lucide-react';
 
 interface AboutPageProps {
     onAuthClick: () => void;
@@ -23,174 +32,246 @@ const AboutPage: React.FC<AboutPageProps> = ({ onAuthClick, onHomeClick }) => {
     const steps = {
         tenant: [
             {
-                id: '01 — Quem é você?',
-                title: 'Crie seu perfil e tenha uma identidade validada',
-                description: 'Crie sua conta e valide sua identidade em poucos passos, contribuindo para uma comunidade mais segura e transparente.',
-                icon: <EditDocumentIcon className="w-8 h-8 text-accent" />
+                id: '01',
+                title: 'Crie sua conta & Verifique',
+                description: 'Crie sua conta segura. Verificamos identidades para garantir que você está interagindo com pessoas reais, não bots.',
+                icon: <UserCheck className="w-6 h-6 text-white" />
             },
             {
-                id: '02 — Sua jornada de locação',
-                title: 'Faça o upload do seu contrato de locação para validação',
-                description: 'Envie seu contrato de locação e deixe que nosso sistema valide sua autenticidade, garantindo que as avaliações estejam vinculadas a locações reais.',
-                icon: <UploadCloudIcon className="w-8 h-8 text-accent" />
+                id: '02',
+                title: 'Upload Contrato',
+                description: 'Upload seu contrato de locação de forma segura. Validamos o documento para confirmar a relação sem expor dados sensíveis.',
+                icon: <Upload className="w-6 h-6 text-white" />
             },
             {
-                id: '03 — Conte sua história',
-                title: 'Deixe sua avaliação para ajudar outros inquilinos a fazer escolhas seguras',
-                description: 'Divida sua experiência com outros inquilinos. Sua avaliação pode evitar dores de cabeça e ajudar alguém a encontrar um lugar melhor para morar.',
-                icon: <EditDocumentIcon className="w-8 h-8 text-accent" />
+                id: '03',
+                title: 'Avaliação Anônima',
+                description: 'Avalie a propriedade e o proprietário honestamente. Sua avaliação é vinculada a um contrato verificado, mas sua identidade pública permanece anônima.',
+                icon: <HatGlasses className="w-6 h-6 text-white" />
             },
             {
-                id: '04 — Conquiste seu reconhecimento',
-                title: 'Tenha um Score que abre portas para novas locações',
-                description: 'Receba a avaliação do seu locador ao final da locação. Um bom histórico aumenta sua credibilidade e facilita a aprovação em futuros imóveis.',
-                icon: <MedalIcon className="w-8 h-8 text-accent" />
+                id: '04',
+                title: 'Ganhe reputação',
+                description: 'Bom inquilino merece reconhecimento. Crie um "Inquilino Verificado" que ajuda você a encontrar seu próximo lar mais rápido.',
+                icon: <Medal className="w-6 h-6 text-white" />
             }
         ],
         landlord: [
             {
-                id: '01 — Apresente-se como proprietário',
-                title: 'Valide seu imóvel em poucos passos',
-                description: 'Mostre quem você é e registre seu imóvel para começar uma jornada de locação mais segura.',
-                icon: <HomeIcon className="w-8 h-8 text-accent" />
+                id: '01',
+                title: 'Verifique Propriedade',
+                description: 'Registre e prove a propriedade. Esse selo de confiança atrai candidatos sérios e de qualidade.',
+                icon: <MapPinHouse className="w-6 h-6 text-white" />
             },
             {
-                id: '02 — Sua experiência com inquilinos',
-                title: 'Avalie potenciais inquilinos',
-                description: 'Compartilhe como administra seu imóvel, sua comunicação e sua forma de conduzir a locação.',
-                icon: <EditDocumentIcon className="w-8 h-8 text-accent" />
+                id: '02',
+                title: 'Verifique Inquilino',
+                description: 'Acesse o histórico de aluguel, o comportamento financeiro e a reputação do candidato antes da aprovação.',
+                icon: <UserCheck className="w-6 h-6 text-white" />
             },
             {
-                id: '03 — Receba e dê retornos reais',
-                title: 'Receba retornos verificados',
-                description: 'Acompanhe avaliações verificadas, entenda como os inquilinos o percebem e registre também sua experiência.',
-                icon: <EditDocumentIcon className="w-8 h-8 text-accent" />
+                id: '03',
+                title: 'Receba Feedback',
+                description: 'Receba feedback construtivo e privado dos inquilinos para melhorar sua gestão imobiliária e valor.',
+                icon: <MessagesSquare className="w-6 h-6 text-white" />
             },
             {
-                id: '04 — Construa sua reputação',
-                title: 'Atraia melhores inquilinos',
-                description: 'Transforme seu histórico positivo em confiança, destaque no mercado e inquilinos mais qualificados.',
-                icon: <MedalIcon className="w-8 h-8 text-accent" />
+                id: '04',
+                title: 'Líder de mercado',
+                description: 'Boas avaliações impulsionam seu anúncio e aumentam o valor percebido pelos inquilinos.',
+                icon: <Medal className="w-6 h-6 text-white" />
             }
         ],
         agency: [
              {
-                id: '01 — Apresente sua imobiliária',
-                title: 'Crie o perfil da sua imobiliária',
-                description: 'Mostre quem vocês são, seu propósito e o compromisso que têm com proprietários e inquilinos.',
-                icon: <BuildingIcon className="w-8 h-8 text-accent" />
+                id: '01',
+                title: 'Perfil da Agência',
+                description: 'Crie um perfil para sua agência. Mostre seu portfólio, equipe e credenciais profissionais.',
+                icon: <Hotel className="w-6 h-6 text-white" />
             },
             {
-                id: '02 — Sua atuação no mercado',
-                title: 'Administre avaliações dos imóveis',
-                description: 'Demonstre como administram imóveis, cuidam das relações e garantem boas experiências de locação.',
-                icon: <UploadCloudIcon className="w-8 h-8 text-accent" />
+                id: '02',
+                title: 'Avaliações Centralizadas',
+                description: 'Agregue avaliações de todas as suas propriedades gerenciadas em um dashboard. Transforme inquilinos felizes em sua equipe de marketing.',
+                icon: <PencilLine className="w-6 h-6 text-white" />
             },
             {
-                id: '03 — Exiba sua reputação real',
-                title: 'Transparência que gera confiança',
-                description: 'Centralize avaliações verificadas e compartilhe a qualidade do atendimento da sua equipe.',
-                icon: <EditDocumentIcon className="w-8 h-8 text-accent" />
+                id: '03',
+                title: 'Transparência',
+                description: 'Mostre estatísticas de eficiência de sua agência (tempos de reparo, pontuações de comunicação) para atrair novos clientes.',
+                icon: <ChartLine className="w-6 h-6 text-white" />
             },
             {
-                id: '04 — Fortaleça sua autoridade',
-                title: 'Amplie sua autoridade no mercado',
-                description: 'Transforme transparência e bons resultados em reconhecimento e destaque no mercado imobiliário.',
-                icon: <MedalIcon className="w-8 h-8 text-accent" />
+                id: '04',
+                title: 'Autoridade',
+                description: 'Use um "ImobiReview Score" alto para dominar seu mercado local e assinar mais contratos.',
+                icon: <Medal className="w-6 h-6 text-white" />
             }
         ]
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-white">
+        <div className="flex flex-col min-h-screen bg-background-light font-display">
             <Header onAuthClick={onAuthClick} onHomeClick={onHomeClick} onAboutClick={() => {}} />
             
             <main className="flex-grow">
-                {/* Header Section */}
-                <section className="pt-20 pb-12 px-4 text-center">
-                    <h1 className="text-4xl md:text-5xl font-black text-primary tracking-tight mb-6">
-                        Locação transparente<br />do começo, ao fim.
-                    </h1>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Confiança começa com clareza. Escolha seu perfil e veja como o ImobiReview torna a locação mais justa para todos.
-                    </p>
-                </section>
-
-                {/* Role Tabs */}
-                <section className="px-4 mb-16">
-                    <div className="max-w-3xl mx-auto flex justify-center border-b border-gray-200">
-                        <button 
-                            onClick={() => setActiveTab('tenant')}
-                            className={`flex flex-col items-center px-8 py-4 border-b-2 transition-all ${activeTab === 'tenant' ? 'border-primary text-primary' : 'border-transparent text-gray-400 hover:text-gray-600'}`}
-                        >
-                            <PersonIcon className="w-6 h-6 mb-2" />
-                            <span className="font-bold text-sm">Para Inquilinos</span>
-                        </button>
-                        <button 
-                            onClick={() => setActiveTab('landlord')}
-                            className={`flex flex-col items-center px-8 py-4 border-b-2 transition-all ${activeTab === 'landlord' ? 'border-primary text-primary' : 'border-transparent text-gray-400 hover:text-gray-600'}`}
-                        >
-                            <HomeIcon className="w-6 h-6 mb-2" />
-                            <span className="font-bold text-sm">Para Proprietários</span>
-                        </button>
-                        <button 
-                            onClick={() => setActiveTab('agency')}
-                            className={`flex flex-col items-center px-8 py-4 border-b-2 transition-all ${activeTab === 'agency' ? 'border-primary text-primary' : 'border-transparent text-gray-400 hover:text-gray-600'}`}
-                        >
-                            <BuildingIcon className="w-6 h-6 mb-2" />
-                            <span className="font-bold text-sm">Para Imobiliária</span>
-                        </button>
+                {/* Hero Section */}
+                <section className="relative bg-primary text-white pt-24 pb-32 overflow-hidden">
+                    {/* Abstract Background Shapes */}
+                    <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
+                        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl"></div>
+                        <div className="absolute top-[20%] left-[10%] w-4 h-4 bg-accent rounded-full opacity-40"></div>
+                        <div className="absolute bottom-[30%] right-[20%] w-6 h-6 bg-accent rounded-full opacity-20"></div>
                     </div>
-                </section>
 
-                {/* Steps List */}
-                <section className="px-4 pb-24">
-                    <div className="max-w-3xl mx-auto space-y-12">
-                        {steps[activeTab].map((step) => (
-                            <div key={step.id} className="flex gap-6 md:gap-8 items-start group">
-                                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gray-50 flex items-center justify-center shrink-0 group-hover:bg-green-50 transition-colors">
-                                    {step.icon}
-                                </div>
-                                <div>
-                                    <span className="text-accent font-bold text-xs tracking-wider mb-1 block">Passo {step.id}</span>
-                                    <h3 className="text-xl font-bold text-primary mb-3">{step.title}</h3>
-                                    <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* CTA Section */}
-                <section className="bg-background-light py-24 px-4 text-center">
-                    <div className="max-w-4xl mx-auto">
-                        <h2 className="text-3xl font-black text-primary mb-8">
-                            Pronto para fazer parte do futuro do mercado imobiliário?
-                        </h2>
-                        <p className="text-gray-600 mb-10 max-w-xl mx-auto">
-                            Fortaleça sua jornada com avaliações transparentes e construa uma reputação sólida no mercado imobiliário.
+                    <div className="container mx-auto px-4 relative z-10 text-center">
+                        <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-accent text-xs font-bold tracking-widest uppercase mb-6 border border-white/10 backdrop-blur-sm">
+                            Nossa Missão
+                        </span>
+                        <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
+                            Tecnologia, dados <br />e <span className="text-accent">Confiança</span> nas locações.
+                        </h1>
+                        <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+							Reconstruindo a confiança no mercado imobiliário.
+Estamos construindo o primeiro ecossistema transparente onde inquilinos, proprietários e imobiliárias são avaliados de forma justa, criando um ambiente mais seguro para todos.
                         </p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-4 items-center">
-                            <button 
-                                onClick={onAuthClick}
-                                className="px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-opacity-90 transition-colors min-w-[200px]"
-                            >
-                                Sou Inquilino
-                            </button>
-                             {activeTab !== 'agency' && (
+                    </div>
+                </section>
+
+                {/* Values Section - Floating Cards */}
+                <section className="px-4 -mt-16 relative z-20 mb-20">
+                    <div className="container mx-auto max-w-6xl">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="bg-white p-8 rounded-2xl shadow-xl border-b-4 border-accent hover:-translate-y-1 transition-transform duration-300">
+                                <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-6">
+                                    <ShieldCheck className="w-6 h-6 text-accent" />
+                                </div>
+                                <h3 className="text-xl font-bold text-primary mb-3">100% Verificado</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    Sem avaliações falsas. Cada avaliação é vinculada a um documento de contrato de locação validado.
+                                </p>
+                            </div>
+                            <div className="bg-white p-8 rounded-2xl shadow-xl border-b-4 border-primary hover:-translate-y-1 transition-transform duration-300">
+                                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                                    <Route className="w-6 h-6 text-primary" />
+                                </div>
+                                <h3 className="text-xl font-bold text-primary mb-3">Respeito Mutuo</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    Avaliações justas entre inquilinos e proprietários. Um relacionamento transparente para os dois lados.
+                                </p>
+                            </div>
+                            <div className="bg-white p-8 rounded-2xl shadow-xl border-b-4 border-accent hover:-translate-y-1 transition-transform duration-300">
+                                <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center mb-6">
+                                    <BadgeCheck className="w-6 h-6 text-accent" />
+                                </div>
+                                <h3 className="text-xl font-bold text-primary mb-3">Dados Orientados</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    Vá além das "intuições". Faça decisões com base em dados históricos, regularidade de pagamentos e estatísticas de manutenção de propriedade.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Interactive Role Section */}
+                <section className="px-4 pb-24">
+                    <div className="container mx-auto max-w-5xl">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-black text-primary mb-4">Como funciona para você</h2>
+                            <p className="text-gray-600">Selecione seu perfil para ver como o ImobiReview empoderará sua jornada.</p>
+                        </div>
+
+                        {/* Custom Tab Navigation */}
+                        <div className="flex justify-center mb-12">
+                            <div className="bg-white p-1.5 rounded-full shadow-md border border-gray-100 inline-flex">
+                                <button 
+                                    onClick={() => setActiveTab('tenant')}
+                                    className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+                                        activeTab === 'tenant' 
+                                        ? 'bg-primary text-white shadow-lg' 
+                                        : 'text-gray-500 hover:text-primary hover:bg-gray-50'
+                                    }`}
+                                >
+                                    <User className="w-4 h-4" /> Inquilino
+                                </button>
+                                <button 
+                                    onClick={() => setActiveTab('landlord')}
+                                    className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+                                        activeTab === 'landlord' 
+                                        ? 'bg-primary text-white shadow-lg' 
+                                        : 'text-gray-500 hover:text-primary hover:bg-gray-50'
+                                    }`}
+                                >
+                                    <Home className="w-4 h-4" /> Proprietário
+                                </button>
+                                <button 
+                                    onClick={() => setActiveTab('agency')}
+                                    className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+                                        activeTab === 'agency' 
+                                        ? 'bg-primary text-white shadow-lg' 
+                                        : 'text-gray-500 hover:text-primary hover:bg-gray-50'
+                                    }`}
+                                >
+                                    <Building className="w-4 h-4" /> Imobiliária
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Grid Content */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {steps[activeTab].map((step, index) => (
+                                <div key={step.id} className="group bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-accent/50 transition-all duration-300 relative overflow-hidden">
+                                    <div className="flex items-start justify-between mb-6 relative z-10">
+                                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-colors duration-300 ${
+                                            index % 2 === 0 ? 'bg-primary' : 'bg-accent'
+                                        }`}>
+                                            {React.cloneElement(step.icon as React.ReactElement, {
+                                                className: index % 2 === 0 ? 'text-accent w-6 h-6' : 'text-primary w-6 h-6'
+                                            })}
+                                        </div>
+                                        <span className="text-6xl font-black text-gray-50 opacity-50 group-hover:text-gray-100 group-hover:scale-110 transition-all duration-500 absolute -right-4 -top-6">
+                                            {step.id}
+                                        </span>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-primary mb-3 relative z-10 group-hover:text-accent transition-colors">{step.title}</h3>
+                                    <p className="text-gray-600 text-sm leading-relaxed relative z-10">
+                                        {step.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Bottom CTA */}
+                <section className="py-24 bg-white border-t border-gray-100">
+                    <div className="container mx-auto px-4 text-center">
+                        <div className="max-w-3xl mx-auto bg-gradient-to-br from-primary to-[#0f3461] rounded-3xl p-10 md:p-16 text-white shadow-2xl relative overflow-hidden">
+                            {/* Decorative Circle */}
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
+                            
+                            <h2 className="text-3xl md:text-4xl font-black mb-6 relative z-10">
+                                Pronto para se juntar à revolução transparente?
+                            </h2>
+                            <p className="text-blue-100 mb-8 max-w-xl mx-auto relative z-10">
+                                Crie sua conta gratuita hoje e comece a construir sua reputação no mercado imobiliário.
+                            </p>
+                            <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
                                 <button 
                                     onClick={onAuthClick}
-                                    className="px-8 py-3 bg-white border border-gray-200 text-primary font-bold rounded-full hover:bg-gray-50 transition-colors min-w-[200px]"
+                                    className="px-8 py-4 bg-accent text-primary font-bold rounded-xl hover:bg-white hover:text-primary transition-all shadow-lg transform hover:-translate-y-1"
                                 >
-                                    Sou Proprietário
+                                    Comece grátis
                                 </button>
-                            )}
+                                <button 
+                                    onClick={onHomeClick}
+                                    className="px-8 py-4 bg-transparent border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-all"
+                                >
+                                    Explore Reviews
+                                </button>
+                            </div>
                         </div>
-                         <div className="mt-8">
-                             <button onClick={onAuthClick} className="text-gray-500 font-medium hover:text-primary flex items-center justify-center gap-1 mx-auto text-sm">
-                                  <span className="text-lg">Cadastrar Imobiliária→</span>
-                             </button>
-                         </div>
                     </div>
                 </section>
             </main>

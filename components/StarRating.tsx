@@ -36,7 +36,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, mode = 'input', onRatin
   }
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center justify-center">
       {[1, 2, 3, 4, 5].map((star) => {
         const isFilled = (hoverRating || rating) >= star;
         return (

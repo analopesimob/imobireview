@@ -1,23 +1,31 @@
 import React from 'react';
-import { FacebookIcon, TwitterIcon, LinkedInIcon } from './icons';
+import {
+	Facebook,
+	Instagram,
+	Linkedin
+} from "lucide-react";
 
-const Footer: React.FC = () => {
+interface FooterProps {
+    onContactClick?: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onContactClick }) => {
     return (
         <footer className="flex flex-col gap-8 px-5 py-10 text-center bg-gray-100">
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
                 <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#">Política de Privacidade</a>
                 <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#">Termos de Serviço</a>
-                <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#">Contate-nos</a>
+                <a className="text-grey-soft hover:text-primary text-sm font-medium" href="#" onClick={(e) => { e.preventDefault(); onContactClick && onContactClick(); }}>Contact Us</a>
             </div>
             <div className="flex flex-wrap justify-center gap-6">
                 <a className="text-grey-soft hover:text-primary" href="#">
-                    <FacebookIcon />
+                    <Facebook />
                 </a>
                 <a className="text-grey-soft hover:text-primary" href="#">
-                    <TwitterIcon />
+                    <Instagram />
                 </a>
                 <a className="text-grey-soft hover:text-primary" href="#">
-                    <LinkedInIcon />
+                    <Linkedin />
                 </a>
             </div>
             <p className="text-grey-soft text-sm font-normal leading-normal">© 2024 ImobiReview. All rights reserved.</p>
