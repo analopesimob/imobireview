@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import EffectBackground from './EffectBackground';
 import {
 	Facebook,
 	Instagram,
@@ -71,12 +72,9 @@ const ContactPage: React.FC<ContactPageProps> = ({ onAuthClick, onHomeClick, onA
 
             <main className="flex-grow">
                 {/* Hero Background */}
-                <div className="bg-primary pt-20 pb-48 relative overflow-hidden">
+                <div className="bg-[#0A2342] pt-20 pb-48 relative overflow-hidden">
                      {/* Decorative Elements */}
-                    <div className="absolute top-0 right-0 w-full h-full pointer-events-none">
-                        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-white/5 rounded-full blur-[80px]"></div>
-                        <div className="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] bg-accent/10 rounded-full blur-[60px]"></div>
-                    </div>
+                    <EffectBackground/>
 
                     <div className="container mx-auto px-4 text-center relative z-10">
                         <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
@@ -131,7 +129,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onAuthClick, onHomeClick, onA
                                     <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
                                         <Facebook className="w-5 h-5" />
                                     </a>
-                                    <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
+                                    <a href="https://www.instagram.com/imobireview?igsh=aHd6dzRiajZubGp3&utm_source=qr" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all">
                                         <Instagram className="w-5 h-5" />
                                     </a>
                                     <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all">

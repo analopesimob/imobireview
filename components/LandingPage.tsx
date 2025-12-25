@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import EffectBackground from './EffectBackground';
 import { 
 	Home, 
 	User, 
@@ -19,9 +20,20 @@ interface LandingPageProps {
     onViewProfile: () => void;
 	onAboutClick: () => void;
 	onContactClick: () => void;
+	onPrivacyClick: () => void;
+	onTermsClick: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClick, onViewProfile, onAboutClick, onContactClick }) => {
+
+const LandingPage: React.FC<LandingPageProps> = ({ 
+    onStartValidation, 
+    onAuthClick, 
+    onViewProfile, 
+    onAboutClick, 
+    onContactClick,
+    onPrivacyClick,
+    onTermsClick
+}) => {
     const [identifier, setIdentifier] = useState('');
     const profile = MOCK_AGENCY_PROFILE;
 
@@ -52,7 +64,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                 {/* Hero Section */}
                 <div className="relative bg-primary pb-32 md:pb-48 pt-16 md:pt-24 px-4 text-center overflow-hidden">
                     {/* Background Pattern/Gradient */}
-                    <div className="absolute inset-0 z-0 bg-primary"></div> 
+                    <EffectBackground/>
                     
                     <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
                         <h1 className="text-white text-4xl md:text-6xl font-black tracking-tight mb-4">
@@ -442,7 +454,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartValidation, onAuthClic
                     </div>
                 </section>
             </main>
-            <Footer onContactClick={onContactClick} />
+            <Footer onContactClick={onContactClick} onPrivacyClick={onPrivacyClick} onTermsClick={onTermsClick} />
         </div>
     );
 };

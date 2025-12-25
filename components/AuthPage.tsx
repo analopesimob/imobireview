@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import EffectBackground from './EffectBackground';
 import { ProfileType } from '../types';
 import { 
   LogoIcon, 
@@ -459,21 +460,17 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLoginClick }) => {
         </div>
       )}
 
-      <div className="absolute inset-0 bg-primary z-0">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#1a4b85] rounded-full blur-[120px] opacity-40"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#6BA87A] rounded-full blur-[100px] opacity-20"></div>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-      </div>
+      <EffectBackground />
 
-      <div className="container mx-auto px-4 z-10 relative flex items-center justify-center h-full py-10">
+      <div className="container mx-auto px-8 z-10 relative flex items-center justify-center h-full py-10">
         <div className="w-full max-w-5xl bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-[40px] shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[650px]">
           
           <div className="w-full md:w-1/2 bg-[#F3F5F9] p-8 md:p-12 flex flex-col justify-center relative">
             <div className="mb-8">
-              <div className="flex items-center gap-2 text-primary mb-6">
+              <a href="landingPage" className="flex items-center text-primary mb-6">
                 <img src="logo.png" alt="Logo" className="w-16"/>
                 <h2 className="text-xl font-bold tracking-tight">ImobiReview</h2>
-              </div>
+              </a>
               <h1 className="text-4xl font-black text-primary mb-2 leading-tight">Bem-vindo<br/>de volta</h1>
               <p className="text-gray-500 font-medium">Acesse seu painel e confira suas avaliações.</p>
             </div>
@@ -522,7 +519,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLoginClick }) => {
                </div>
                <div className="relative w-full bg-[#0d2d55]/80 backdrop-blur-xl rounded-3xl p-8 border border-white/10 mt-8 shadow-2xl">
                   <h3 className="text-white font-black text-xl mb-4 text-center">Ainda não tem conta?</h3>
-                  <button onClick={() => setIsSignUpOpen(true)} className="w-full py-4 bg-accent text-primary hover:bg-white font-black rounded-2xl transition-all duration-500 shadow-2xl transform hover:-translate-y-1">CRIAR CONTA AGORA</button>
+                  <button onClick={() => setIsSignUpOpen(true)} className="w-full py-4 bg-white text-primary hover:bg-white font-black rounded-2xl transition-all duration-500 shadow-2xl transform hover:-translate-y-1">CRIAR CONTA AGORA</button>
                </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import EffectBackground from './EffectBackground';
 import {
 	ShieldCheck, 
 	Route,
@@ -116,29 +117,37 @@ const AboutPage: React.FC<AboutPageProps> = ({ onAuthClick, onHomeClick }) => {
             
             <main className="flex-grow">
                 {/* Hero Section */}
-                <section className="relative bg-primary text-white pt-24 pb-32 overflow-hidden">
+                <section className="relative bg-[#051326] text-white pt-24 pb-32 overflow-hidden">
                     {/* Abstract Background Shapes */}
-                    <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
-                        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"></div>
-                        <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl"></div>
-                        <div className="absolute top-[20%] left-[10%] w-4 h-4 bg-accent rounded-full opacity-40"></div>
-                        <div className="absolute bottom-[30%] right-[20%] w-6 h-6 bg-accent rounded-full opacity-20"></div>
+                    <div className="absolute inset-0 opacity-20 pointer-events-none">
+                        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent"></div>
+                        <div className="absolute top-0 left-2/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent"></div>
+                        <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent"></div>
                     </div>
 
-                    <div className="container mx-auto px-4 relative z-10 text-center">
-                        <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-accent text-xs font-bold tracking-widest uppercase mb-6 border border-white/10 backdrop-blur-sm">
+                    {/* Conteúdo */}
+                    <div className="container mx-auto px-4 text-center relative z-10">
+                        {/* Badge */}
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-accent text-xs font-bold uppercase tracking-[0.2em] mb-8 border border-white/10">
+                            <ShieldCheck className="w-4 h-4 animate-bounce" />
                             Nossa Missão
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
-                            Tecnologia, dados <br />e <span className="text-accent">Confiança</span> nas locações.
+                        </div>
+
+                        {/* Título */}
+                        <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
+                            Tecnologia, dados <br />
+                            e <span className="text-accent">Confiança</span> nas locações
                         </h1>
-                        <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-							Reconstruindo a confiança no mercado imobiliário.
-Estamos construindo o primeiro ecossistema transparente onde inquilinos, proprietários e imobiliárias são avaliados de forma justa, criando um ambiente mais seguro para todos.
+
+                        {/* Subtítulo */}
+                        <p className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                            Reconstruindo a confiança no mercado imobiliário.
+                            Criamos um ecossistema transparente onde inquilinos,
+                            proprietários e imobiliárias são avaliados de forma justa,
+                            promovendo segurança para todos.
                         </p>
                     </div>
                 </section>
-
                 {/* Values Section - Floating Cards */}
                 <section className="px-4 -mt-16 relative z-20 mb-20">
                     <div className="container mx-auto max-w-6xl">
@@ -250,7 +259,7 @@ Estamos construindo o primeiro ecossistema transparente onde inquilinos, proprie
                         <div className="max-w-3xl mx-auto bg-gradient-to-br from-primary to-[#0f3461] rounded-3xl p-10 md:p-16 text-white shadow-2xl relative overflow-hidden">
                             {/* Decorative Circle */}
                             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl -mr-16 -mt-16"></div>
-                            
+                            <EffectBackground />
                             <h2 className="text-3xl md:text-4xl font-black mb-6 relative z-10">
                                 Pronto para se juntar à revolução transparente?
                             </h2>
