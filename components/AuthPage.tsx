@@ -448,7 +448,7 @@ const AuthPage: React.FC<AuthPageProps> = ({ onLoginClick }) => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden font-display">
+    <div className="min-h-screen bg-[#0A2342] flex items-center justify-center relative overflow-hidden font-display">
       {isSignUpOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md p-4 animate-fadeIn">
             <div className="bg-white w-full max-w-[568px] rounded-[32px] shadow-2xl overflow-hidden relative animate-slideUp flex flex-col max-h-[90vh] border border-white/20">
